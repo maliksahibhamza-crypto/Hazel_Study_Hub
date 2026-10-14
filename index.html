@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b78">
+  <meta name="description" content="HAZEl Study Hub — MDCAT practice, flashcards, study planning and progress tracking.">
+  <title>HAZEl Study Hub | MDCAT Preparation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="HAZEl Study Hub home">
+        <span class="brand-mark">H</span>
+        <span class="brand-copy"><strong>HAZE<span>l</span></strong><small>STUDY HUB</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span> Dashboard</button>
+        <button class="nav-item" data-view="mcqs"><span class="nav-icon">✓</span> MCQ Practice</button>
+        <button class="nav-item" data-view="flashcards"><span class="nav-icon">▤</span> Flashcards</button>
+        <button class="nav-item" data-view="planner"><span class="nav-icon">▦</span> Study Planner</button>
+        <button class="nav-item" data-view="progress"><span class="nav-icon">↗</span> My Progress</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <span class="note-star">✦</span>
+          <strong>Small steps. Big results.</strong>
+          <p>Consistency beats cramming. Keep showing up.</p>
+        </div>
+        <div class="sidebar-foot">MADE FOR YOUR NEXT BIG STEP <span>✦</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbCurrent">Dashboard</strong></div>
+        <div class="topbar-right">
+          <span class="date-chip" id="todayLabel">Today</span>
+          <div class="avatar">S</div>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="view active" id="view-dashboard">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PRE-MEDICAL SPACE</div>
+              <h1>Keep your momentum, <span>future doctor.</span></h1>
+              <p class="muted lead">A focused day today brings you closer to your goal.</p>
+            </div>
+            <button class="button button-primary" data-go="mcqs">Start practicing <span>→</span></button>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-copy">
+              <span class="hero-kicker">YOUR DAILY MISSION</span>
+              <h2>One focused session<br>at a time.</h2>
+              <p>Build understanding, test yourself, and make progress you can see.</p>
+              <button class="button button-light" data-go="planner">Plan my study day <span>→</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+              <div class="art-core">H<span>+</span></div>
+              <div class="art-pill pill-one">BIOLOGY</div>
+              <div class="art-pill pill-two">FOCUS</div>
+              <div class="art-pill pill-three">MDCAT</div>
+              <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div><h2>Your overview</h2><p class="muted">Your activity, all in one place.</p></div>
+            <span class="subtle-tag">UPDATED ON THIS DEVICE</span>
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon blue-icon">✓</span><span class="stat-label">MCQs answered</span></div>
+              <div class="stat-number" id="statAnswered">0</div><div class="stat-foot">Questions attempted</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon gold-icon">★</span><span class="stat-label">Accuracy</span></div>
+              <div class="stat-number" id="statAccuracy">0%</div><div class="stat-foot">Correct answers overall</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon violet-icon">◷</span><span class="stat-label">Study tasks</span></div>
+              <div class="stat-number" id="statTasks">0/0</div><div class="stat-foot">Completed in your planner</div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon green-icon">✦</span><span class="stat-label">Flashcards</span></div>
+              <div class="stat-number" id="statCards">0</div><div class="stat-foot">Cards marked as known</div>
+            </article>
+          </div>
+
+          <div class="dashboard-columns">
+            <section class="panel">
+              <div class="panel-heading"><div><h3>Practice by subject</h3><p class="muted">Choose a subject and get started.</p></div><button class="text-button" data-go="mcqs">All questions →</button></div>
+              <div class="subject-list">
+                <button class="subject-row" data-subject="Biology"><span class="subject-symbol biology">B</span><span class="subject-copy"><strong>Biology</strong><small>Cells, genetics & more</small></span><span class="subject-arrow">→</span></button>
+                <button class="subject-row" data-subject="Chemistry"><span class="subject-symbol chemistry">C</span><span class="subject-copy"><strong>Chemistry</strong><small>Atoms, bonding & reactions</small></span><span class="subject-arrow">→</span></button>
+                <button class="subject-row" data-subject="Physics"><span class="subject-symbol physics">P</span><span class="subject-copy"><strong>Physics</strong><small>Motion, energy & waves</small></span><span class="subject-arrow">→</span></button>
+                <button class="subject-row" data-subject="English"><span class="subject-symbol english">E</span><span class="subject-copy"><strong>English</strong><small>Grammar & vocabulary</small></span><span class="subject-arrow">→</span></button>
+              </div>
+            </section>
+            <section class="panel daily-panel">
+              <div class="panel-heading"><div><h3>Today's plan</h3><p class="muted">Your next steps.</p></div><button class="text-button" data-go="planner">Manage →</button></div>
+              <div id="dashboardTasks" class="dashboard-tasks"></div>
+              <button class="add-task-inline" data-go="planner">＋ Add a study task</button>
+            </section>
+          </div>
+          <div class="tip-strip"><span class="tip-icon">✦</span><div><strong>Study tip</strong><p>Try active recall: close your notes, explain the concept in your own words, then check what you missed.</p></div></div>
+        </section>
+
+        <section class="view" id="view-mcqs">
+          <div class="page-heading"><div><div class="eyebrow">TEST YOUR KNOWLEDGE</div><h1>MCQ <span>Practice</span></h1><p class="muted lead">Practice with sample questions and learn from every answer.</p></div></div>
+          <div class="filter-bar">
+            <label class="field-label">Subject<select id="subjectFilter"><option value="All">All subjects</option><option>Biology</option><option>Chemistry</option><option>Physics</option><option>English</option></select></label>
+            <label class="field-label">Question set<select id="questionCount"><option value="10">10 questions</option><option value="5">5 questions</option><option value="all">All available</option></select></label>
+            <button class="button button-primary" id="startQuiz">Start quiz <span>→</span></button>
+          </div>
+          <div class="quiz-layout">
+            <section class="panel quiz-panel" id="quizPanel">
+              <div class="quiz-empty"><div class="empty-icon">✓</div><h2>Ready when you are</h2><p>Choose a subject and start a practice set. Your answers will contribute to your progress stats.</p><button class="button button-primary" id="startQuizEmpty">Start practice</button></div>
+            </section>
+            <aside class="panel quiz-side">
+              <span class="mini-label">PRACTICE NOTE</span><h3>Understand, don't just memorize.</h3><p class="muted">After choosing an answer, read the explanation. Revisiting mistakes is one of the most useful parts of practice.</p>
+              <div class="quiz-side-stat"><span>Questions in library</span><strong id="libraryCount">0</strong></div>
+              <div class="quiz-side-stat"><span>Your attempts</span><strong id="quizAttempts">0</strong></div>
+              <div class="quiz-side-stat"><span>Best accuracy</span><strong id="bestAccuracy">—</strong></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="view-flashcards">
+          <div class="page-heading"><div><div class="eyebrow">REMEMBER MORE</div><h1>Smart <span>Flashcards</span></h1><p class="muted lead">Flip a card, retrieve the answer, and mark what you know.</p></div></div>
+          <div class="flash-toolbar">
+            <label class="field-label">Deck<select id="flashSubject"><option value="All">All subjects</option><option>Biology</option><option>Chemistry</option><option>Physics</option><option>English</option></select></label>
+            <div class="flash-count" id="flashCount">Card 1 of 1</div>
+          </div>
+          <div class="flash-stage">
+            <button class="flash-card" id="flashCard" aria-label="Flip flashcard">
+              <span class="flash-topline"><span id="flashSubjectBadge">BIOLOGY</span><span>CLICK TO FLIP ↻</span></span>
+              <span class="flash-question" id="flashQuestion">What is homeostasis?</span>
+              <span class="flash-answer" id="flashAnswer">The maintenance of a relatively stable internal environment.</span>
+              <span class="flash-bottomline" id="flashHint">Tap the card to reveal the answer</span>
+            </button>
+          </div>
+          <div class="flash-controls"><button class="button button-outline" id="flashPrev">← Previous</button><button class="button button-soft" id="markKnown">✓ I know this</button><button class="button button-primary" id="flashNext">Next card →</button></div>
+          <p class="flash-footnote">“I know this” saves your progress on this device. You can revisit any card anytime.</p>
+        </section>
+
+        <section class="view" id="view-planner">
+          <div class="page-heading"><div><div class="eyebrow">MAKE TIME FOR WHAT MATTERS</div><h1>Study <span>Planner</span></h1><p class="muted lead">Turn your goals into manageable study sessions.</p></div></div>
+          <div class="planner-layout">
+            <section class="panel planner-form-panel">
+              <div class="panel-heading"><div><h3>Add a study task</h3><p class="muted">Keep each task clear and achievable.</p></div><span class="form-spark">✦</span></div>
+              <form id="taskForm" class="task-form">
+                <label class="field-label">Task title<input id="taskTitle" type="text" maxlength="100" placeholder="e.g. Revise Homeostasis" required></label>
+                <div class="form-two">
+                  <label class="field-label">Subject<select id="taskSubject"><option>Biology</option><option>Chemistry</option><option>Physics</option><option>English</option><option>Revision</option><option>Mock test</option></select></label>
+                  <label class="field-label">Duration<select id="taskDuration"><option value="15">15 minutes</option><option value="25" selected>25 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option><option value="90">90 minutes</option></select></label>
+                </div>
+                <label class="field-label">Planned date<input id="taskDate" type="date" required></label>
+                <button class="button button-primary full-width" type="submit">＋ Add to planner</button>
+              </form>
+            </section>
+            <section class="panel planner-list-panel">
+              <div class="panel-heading"><div><h3>Your study tasks</h3><p class="muted" id="taskSummary">No tasks yet — add your first one.</p></div><select class="compact-select" id="taskFilter" aria-label="Filter tasks"><option value="all">All tasks</option><option value="today">Today</option><option value="open">To do</option><option value="done">Completed</option></select></div>
+              <div id="plannerTasks" class="planner-tasks"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="view-progress">
+          <div class="page-heading"><div><div class="eyebrow">YOUR EFFORT, MADE VISIBLE</div><h1>My <span>Progress</span></h1><p class="muted lead">Review your practice history and keep improving.</p></div><button class="button button-outline" id="exportProgress">Export progress</button></div>
+          <div class="stats-grid progress-stats">
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon blue-icon">✓</span><span class="stat-label">Questions answered</span></div><div class="stat-number" id="progressAnswered">0</div><div class="stat-foot">All recorded attempts</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon gold-icon">★</span><span class="stat-label">Correct answers</span></div><div class="stat-number" id="progressCorrect">0</div><div class="stat-foot">Keep learning from mistakes</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon violet-icon">▤</span><span class="stat-label">Cards known</span></div><div class="stat-number" id="progressKnown">0</div><div class="stat-foot">Flashcards marked known</div></article>
+            <article class="stat-card"><div class="stat-top"><span class="stat-icon green-icon">◷</span><span class="stat-label">Study minutes</span></div><div class="stat-number" id="progressMinutes">0</div><div class="stat-foot">Completed planned sessions</div></article>
+          </div>
+          <div class="dashboard-columns progress-columns">
+            <section class="panel"><div class="panel-heading"><div><h3>Subject accuracy</h3><p class="muted">Based on answered questions.</p></div></div><div id="subjectProgress" class="subject-progress"></div></section>
+            <section class="panel"><div class="panel-heading"><div><h3>Recent quiz sessions</h3><p class="muted">Your latest completed practices.</p></div></div><div id="recentSessions" class="recent-sessions"></div></section>
+          </div>
+          <div class="danger-zone"><div><strong>Reset local progress</strong><p>This removes your saved tasks, answers, and flashcard progress from this browser.</p></div><button class="button button-danger" id="resetProgress">Reset data</button></div>
+        </section>
+      </div>
+      <footer class="main-footer"><span>HAZEl Study Hub</span><span>Learn with purpose <b>✦</b></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+</body>
+</html>
